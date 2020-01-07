@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('checkout') {
             steps {
-                echo 'Building..'
+                  checkout scm
+                  powershell "git clean -fdx"
+            }
+        }
+        stage('build') {
+            steps {
+                  set buildPath=%cd%
+                  powershell ""C:\\Program Files\\Unity\\Editor\\Unity.exe" -quit -batchmode -logFile stdout.log -projectPath %buildPath% -executeMethod StandaloneWindowsBuild.build"
             }
         }
     }
