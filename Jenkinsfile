@@ -10,7 +10,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                  set buildPath=%cd%
+                  powershell "set buildPath=%cd%"
                   powershell ""C:\\Program Files\\Unity\\Editor\\Unity.exe" -quit -batchmode -logFile stdout.log -projectPath %buildPath% -executeMethod StandaloneWindowsBuild.build"
             }
         }
