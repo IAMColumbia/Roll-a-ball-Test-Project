@@ -1,5 +1,5 @@
 using UnityEditor;
-Class StandaloneWindowsBuild
+class StandaloneWindowsBuild
 {
     static void build()
     {
