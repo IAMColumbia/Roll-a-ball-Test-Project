@@ -4,7 +4,7 @@ pipeline {
         stage('checkout') {
             steps {
                   checkout scm
-                  powershell "'C:\\Program Files\\Git\\bin\\git.exe' clean -fdx"
+                  powershell "C:\\Program Files\\Git\\bin\\git.exe clean -fdx"
             }
         }
         stage('build') {
